@@ -1,0 +1,4 @@
+/puppet_web_admin/migrations/*
+/.idea/*
+*.pyc
+puppet_web_admin/*.pyc
