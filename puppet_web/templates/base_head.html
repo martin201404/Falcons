@@ -1,0 +1,54 @@
+<head>
+        <title>{% block title %}{% endblock %}</title>
+        {% block head %}{% endblock %}
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <!-- Bootstrap -->
+        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="/static/bootstrap/css/bootstrap.css.map" rel="stylesheet" media="screen">
+        <link href="/static/vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
+        <link href="/static/assets/styles.css" rel="stylesheet" media="screen">
+        <link href="/static/js/jquery-2.1.4.min.js">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="../staic/js/html5.js"></script>
+
+        <![endif]-->
+        <script src="/static/js/check_model.js" type="application/javascript"></script>
+        <script src="/static/vendors/modernizr-2.6.2-respond-1.1.0.min.js" type="text/javascript"></script>
+
+        <script>
+        {% if messages %}
+          {% for message in messages %}
+            alert(message);
+          {% endfor %}
+        {% endif %}
+        </script>
+
+{#        <style type="text/css">#}
+{#            body {#}
+{#                padding-top: 70px;#}
+{#                font-family:"微软雅黑";#}
+{#            }#}
+{#            .nav li a{ font-size:16px; }#}
+{#            .input{ padding-top: 0px; padding-bottom: 0px; margin: 0px; height:10px;}#}
+{##}
+{#            ul.errorlist {margin: 0; pandding: 0;}#}
+{#            .errorlist li {color: red ;}#}
+{##}
+{#            .glyphicon { margin-right:10px; }#}
+{#            .panel-body { padding:0px; }#}
+{#            .panel-body table tr td { padding-left: 15px }#}
+{#            .panel-body .table {margin-bottom: 0px; }#}
+{#        </style>#}
+
+</head>
+<body>
+{% if user.is_authenticated %}
+    <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+    </div>
+
+{% endif %}
+{% block content %}{% endblock %}
+</body>

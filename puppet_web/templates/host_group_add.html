@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet add host</div>
+                                   <div class="pull-right"><span class="badge badge-warning">puppet add host</span>
+                                   </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                   <form  method="post" action="">{% csrf_token %}
+                                       <div class="base03">
+                                           {{ host_group_add.as_p }}
+                                       </div>
+                                   <!--
+                                        <table>
+                                           <tr><td>请选择idc:</td></tr>
+                                           {% for field1 in hostgroup_to_idc_local %}
+                                              <tr><td>{{field1}}</td></tr>
+                                           {% endfor %}
+                                       </table>
+                                   -->
+                                       <input type="submit" value="确 定" class="btn btn-info">
+                                   </form>
+
+                                <p>说明：主机ip 默认为0.0.0.0，意思就是这个组里面没有任何主机</p>
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

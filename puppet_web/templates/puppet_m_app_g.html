@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 模块应用到组</div>
+                                <div class="pull-right"><span class="badge badge-warning"></span></div>
+                            </div>
+
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+                             <form action="" method="post">{% csrf_token %}
+                                       <div class="base03">
+                                       <table>
+                                           <tr><td>请选择主机组:</td></tr>
+
+                                                {% for field in form %}
+                                                    {% if field %}
+                                                        <tr><td>{{field}}</td></tr>
+                                                    {% else %}
+                                                        <tr><td><font color="red">没有主机组，请在设置中定义主机组</font> </td></tr>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                       </table>
+                                       <table>
+                                           <tr><td>请选择模块名:</td></tr>
+
+                                               {% for field1 in form1 %}
+                                                   {% if field1 %}
+                                                      <tr><td>{{field1}}</td></tr>
+                                                   {% else %}
+                                                      <tr><td><font color="red">没有找到模块，请先在puppet 模块管理中增加模块</font> </td></tr>
+                                                   {% endif %}
+                                               {% endfor %}
+
+                                       </table>
+                                       </div>
+
+
+                             <input type="submit" class="btn btn-info" value="应用">
+                             </form>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

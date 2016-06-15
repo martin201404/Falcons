@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+
+                                <div class="muted pull-left">puppet 模块编写</div>
+                                <div class="pull-right"><span class="badge badge-warning">puppet 模块编写 </span></div>
+                            </div>
+                            <div class="block-content collapse in">
+                                   <form  method="post" action="" onSubmit="return beforeSubmit(this);">{% csrf_token %}
+                                       <div  class="base03">
+                                           {{ form.as_p }}
+
+                                       </div>
+                                       <input type="submit" value="确 定" class="btn btn-info">
+                                   </form>
+
+
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

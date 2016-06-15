@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">发布项权限设置</div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../jenkins_power_add">增加权限</a> </span>
+                                   </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+
+                                                  <td>用户组</td>
+                                                  <td>发布名称</td>
+                                                  <td>操作选项</td>
+                                                  
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.job_group }}</td>
+                                                          <td>{{ foo.job_name }}</td>
+                                                          <td>xxxxx</td>
+
+
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

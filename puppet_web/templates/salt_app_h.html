@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>puppet 同步到节点</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <!-- Bootstrap -->
+        <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../static/vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
+        <link href="../static/assets/styles.css" rel="stylesheet" media="screen">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="../staic/js/html5.js"></script>
+        <![endif]-->
+        <script src="../static/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left"></div>
+                                <div class="pull-right"><span class="badge badge-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <form action=""  method="post">{% csrf_token %}
+                                      {{ form.as_table }}
+                                      {{ form1.as_table }}
+                                      <input type="submit" value="执行">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; 运维管理系统</p>
+            </footer>
+        </div>
+       {% include "base_below.html" %}
+    </body>
+
+</html>

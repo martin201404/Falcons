@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="no-js">    
+ {% include "base_head.html" %}
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">主机统计简表</div>
+                                <div class="pull-right"><span class="badge badge-warning">查看更多</span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span3">
+                                    <div class="chart" data-percent="73">{{ host_all_conut }}</div>
+                                    <div class="chart-bottom-heading"><span class="label label-info">主机数</span>
+
+                                    </div>
+                                </div>
+                                <div class="span3">
+                                    <div class="chart" data-percent="53">{{ host_active_count }}</div>
+                                    <div class="chart-bottom-heading"><span class="label label-info">活动主机</span>
+
+                                    </div>
+                                </div>
+
+                                 <div class="span3">
+                                    <div class="chart" data-percent="13">{{ puppet_mod_count }}</div>
+                                    <div class="chart-bottom-heading"><span class="label label-info">puppet 模块数</span>
+
+                                    </div>
+                                </div>
+                                <div class="span3">
+                                    <div class="chart" data-percent="13">13</div>
+                                    <div class="chart-bottom-heading"><span class="label label-info">puppet 错误</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <!-- block -->
+                            <div class="block">
+                                <div class="navbar navbar-inner block-header">
+                                    <div class="muted pull-left">最新执行</div>
+                                    <div class="pull-right"><span class="badge badge-info">1,234</span>
+
+                                    </div>
+                                </div>
+                                <div class="block-content collapse in">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>姓名</th>
+                                                <th>模块</th>
+                                                <th>结果</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mark</td>
+                                                <td>nginx</td>
+                                                <td>成功</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Jacob</td>
+                                                <td>ntp</td>
+                                                <td>成功</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Vincent</td>
+                                                <td>tomcat</td>
+                                                <td>成功</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /block -->
+                        </div>
+                        <div class="span6">
+                            <!-- block -->
+                            <div class="block">
+                                <div class="navbar navbar-inner block-header">
+                                    <div class="muted pull-left">计划任务</div>
+                                    <div class="pull-right"><span class="badge badge-info">752</span>
+
+                                    </div>
+                                </div>
+                                <div class="block-content collapse in">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>制定者</th>
+                                                <th>执行时间</th>
+                                                <th>命令</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Coat</td>
+                                                <td>02/02/2013</td>
+                                                <td>run ngninx to idc 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Jacket</td>
+                                                <td>01/02/2013</td>
+                                                <td>restart nginx</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Shoes</td>
+                                                <td>01/02/2013</td>
+                                                <td>update nging config</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /block -->
+                        </div>
+                    </div>
+
+            </div>
+            <hr style=" borber:3px blue solid; ">
+        <footer>
+                <p align="center">&copy; Falcons 运维管理系统 2016</p>
+        </footer>
+        </div>
+        <!--/.fluid-container-->
+        <script src="../static/vendors/jquery-1.9.1.min.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="../static/assets/scripts.js"></script>
+        <script>
+        $(function() {
+            // Easy pie charts
+            $('.chart').easyPieChart({animate: 1000});
+        });
+        </script>
+    </body>
+
+</html>

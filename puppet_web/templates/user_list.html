@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                        <form action="" method="post">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">用户列表</div>
+                                <div class="pull-right"><span class="badge badge-warning"><a href="../user_add">添加用户</a> </span></div>
+
+                            </div>
+                        </form>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>帐号 </td>
+                                                  <td>姓名</td>
+                                                  <td>性别</td>
+                                                  <td>email</td>
+                                                  <td>状态</td>
+                                                  <td>用户组</td>
+                                                  <td>最后登陆时间</td>
+                                                  <td>操作</td>
+
+
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.username}}</td>
+                                                          <td>{{ foo.nickname|default:"----" }}</td>
+                                                          <td>{{ foo.sex|default:"----" }}</td>
+                                                          <td>{{ foo.email }}</td>
+                                                          <td>
+                                                                {% if foo.is_active %}
+                                                                  <span class="label label-success">启用</span>
+                                                                {% else %}
+                                                                    <span class="label label-default">禁用</span>
+                                                                {% endif %}
+                                                          </td>
+                                                          <td>{{ foo.user_group|default:"----" }}</td>
+                                                          <td>{{ foo.last_login|date:"Y-m-d H:i:s" }}</td>
+                                                          <td>
+                                                               <div class="pull-left"><span class="badge badge-warning"><a href="{% url 'user_update' foo.id %}">修改用户信息</a> </span></div>
+                                                          </td>
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

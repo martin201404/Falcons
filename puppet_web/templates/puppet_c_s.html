@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 基础路径参数查看</div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_admin_config">修改</a> </span>
+                                   </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate blog 5 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>puppet 模块路径</td>
+                                                  <td>puppet file.conf</td>
+                                                  <td>puppet 主配置目录(puppet.conf 目录)</td>
+                                                  <td>puppet master ip</td>
+                                              </tr>
+
+                                               {% for foo in blog %}
+                                                   <tr>
+
+                                                          <td>{{ foo.puppet_model_path }}</td>
+                                                          <td>{{ foo.puppet_files_server_path }}</td>
+                                                          <td>{{ foo.puppet_config_path }}</td>
+                                                          <td>{{ foo.puppet_server_ip }}</td>
+
+
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

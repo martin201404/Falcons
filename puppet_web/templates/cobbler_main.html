@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>puppet 运维管理界面</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <!-- Bootstrap -->
+        <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../static/vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
+        <link href="../static/assets/styles.css" rel="stylesheet" media="screen">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="../staic/js/html5.js"></script>
+        <![endif]-->
+        <script src="../static/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">系统配置管理</div>
+                                <div class="pull-right"><span class="badge badge-warning">puppet</span>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span2">
+                                    <div id='external-events'>
+                                    <h4>Draggable Events</h4>
+                                    <div class='external-event'>
+                                        <form name="stats">
+                                            {{ status }}
+                                        </form>
+                                    </div>
+                                    <p>
+                                    <input type='checkbox' id='drop-remove' /> <label for='drop-remove'>remove after drop</label>
+                                    </p>
+                                    </div>
+
+                                </div>
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; 运维管理系统</p>
+            </footer>
+        </div>
+       {% include "base_below.html" %}
+    </body>
+
+</html>

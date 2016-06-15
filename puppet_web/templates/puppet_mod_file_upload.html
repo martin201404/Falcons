@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 文件上传</div>
+                            </div>
+
+                            <div class="block-content collapse in">
+
+
+                                       <div class="base03">
+
+                                          {{ form.as_table }}{{form.non_field_errors}}
+
+                                          <input type="submit" value="上传文件" multiple="" />
+                                       </div>
+                        </form>
+
+
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

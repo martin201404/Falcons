@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">权限</div>
+                                   <div class="pull-right"><span class="badge badge-warning">没权限</span>
+                                   </div>
+                            </div>
+                              <p class="badge-error">请联系管理员，你没有操作此主机的权限</p>
+
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'puppet_web',
+    'pagination',
+    #####pip install https://github.com/MagicSolutions/django-checkboxselectmultiple/archive/master.zip
+    'checkboxselectmultiple',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,6 +52,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+     ## auto page
+    'pagination.middleware.PaginationMiddleware',
+    ##upload file
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 )
 
 ROOT_URLCONF = 'Falcons.urls'
@@ -77,18 +85,23 @@ WSGI_APPLICATION = 'Falcons.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+        'USER':'root',
+        'PASSWORD':'111111',
+        'NAME':'Falcons',
     }
 }
+
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -101,3 +114,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'puppet_web.User'

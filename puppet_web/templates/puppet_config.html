@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+         <form  method="post" action="">
+                                       {% csrf_token %}
+                                       <div class="field">
+                                           <label for="id_puppet_mode_path" >puppet 模块路径:</label>
+                                           {{ form.puppet_model_path }}
+                                       </div>
+                                       <div class="block">
+                                           <label for="id_puppet_files_server_path">puppet 文件服务器配置路径:</label>
+                                           {{ form.puppet_files_server_path }}
+                                       </div>
+                                       <div class="block">
+                                           <label for="id_puppet_config_path">puppet 主配置文件路径:</label>
+                                           {{ form.puppet_config_path }}
+                                       </div>
+         </form>
+
+</body>
+</html>

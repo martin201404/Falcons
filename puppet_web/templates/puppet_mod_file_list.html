@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+
+                            <div class="navbar navbar-inner block-header">
+
+                                <div class="muted pull-left">puppet 模块文件</div>
+                                <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_m_upload">上传模块文件</a> </span>
+                                   </div>
+                            </div>
+
+                            <div class="block-content collapse in">
+
+
+                                       <div class="base03">
+
+                                          {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>文件路径 </td>
+                                                  <td>模块明</td>
+                                                  <td>备注</td>
+
+
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.file}}</td>
+                                                          <td>{{ foo.model_name }}</td>
+                                                          <td>{{ foo.describe }}</td>
+
+
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+
+                                       </div>
+
+
+
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

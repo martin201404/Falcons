@@ -1,0 +1,92 @@
+
+  <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Falcons 运维管理系统</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i>账户管理<i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="#">个人资料</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="../user_changep">修改密码</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="{% url 'logout' %}">退出</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="#">首页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">设置 <b class="caret"></b>
+
+                                </a>
+                                <ul class="dropdown-menu" id="menu1">
+
+                                    <li>
+
+                                        <a href="../puppet_c_s">查看puppet基础路径参数</a>
+                                        <a href="../salt_master_list">查看salt 基础路径参数</a>
+
+
+                                        <ul class="dropdown-menu sub-menu">
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">主机<i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="../host_group">配置主机组 </a>
+                                    </li>
+                                    <li>
+                                        <a href="../host_list">主机状态</a>
+                                    </li>
+                                    <li>
+                                        <a href="../idc_list">定义idc</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">用户 <i class="caret"></i>
+
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="../user_list">用户管理</a>
+                                    </li>
+                                     <li>
+                                        <a tabindex="-1" href="../user_group_list">用户组管理</a>
+                                    </li>
+
+                                    <li>
+                                        <a tabindex="-1" href="../role_list">角色管理</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+  </div>

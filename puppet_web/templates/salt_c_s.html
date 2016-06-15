@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">salt 基础路径参数查看</div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../salt_admin_config">修改</a> </span>
+                                   </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate salt_admin 5 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>master ip</td>
+                                                  <td>master name</td>
+                                                  <td>master 位置</td>
+                                                  <td>操作选项</td>
+                                              </tr>
+
+                                               {% for foo in salt_admin %}
+                                                   <tr>
+
+                                                          <td>{{ foo.ip }}</td>
+                                                          <td>{{ foo.name }}</td>
+                                                          <td>{{ foo.local }}</td>
+                                                          <td><div class="pull-left"><span class="badge badge-warning"><a href="{% url 'salt_master_add' %}">增加</a> </span></div><a href="{% url 'salt_master_update' foo.id %}">修改</a> </td>
+
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

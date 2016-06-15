@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                        <form action="" method="post">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">用户组列表</div>
+                                <div class="pull-right"><span class="badge badge-warning"><a href="../user_group_add">添加用户组</a> </span></div>
+
+                            </div>
+                        </form>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>用户组名称 </td>
+                                                  <td>用户</td>
+
+                                                  <td>操作</td>
+
+
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.user_group}}</td>
+                                                          <td>{{ foo.username }}</td>
+
+                                                          <td>dddd</td>
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

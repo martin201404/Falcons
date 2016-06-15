@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 主机组</div>
+                                <form action="" method="post">{% csrf_token %}
+                                    {{ form.as_p }}
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="{% url 'host_add' %}">添加主机</a></span></div>
+                                </form>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>主机名 </td>
+                                                  <td>ip</td>
+                                                  <td>主机状态</td>
+                                                  <td>操作系统</td>
+                                                  <td>主机组</td>
+                                                  <td>idc名称</td>
+                                                  <td>楼层</td>
+                                                  <td>机柜</td>
+                                                  <td>saltmaster</td>
+                                                  <td>操作选项</td>
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.name}}</td>
+                                                          <td>{{ foo.ip }}</td>
+                                                          <td>{{ foo.status }}</td>
+                                                          <td>{{ foo.os_varsion }}</td>
+                                                          <td>{{ foo.group_name }}</td>
+                                                          <td>{{ foo.idc_name }}</td>
+                                                          <td>{{ foo.idc_floor }}</td>
+                                                          <td>{{ foo.idc_cabinets }}</td>
+                                                          <td>{{ foo.salt_name }}</td>
+                                                          <td><div class="pull-left" ><span class="badge badge-warning"><a href="{% url 'host_update' foo.id %}">修改</a> </span></div>
+                                                              <div class="pull-left" ><span class="badge badge-warning"><a href="{% url 'host_delete' foo.id %}" onclick="return confirm('你确认要删除这台主机吗?')">删除主机</a> </span></div>
+                                                          </td>
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

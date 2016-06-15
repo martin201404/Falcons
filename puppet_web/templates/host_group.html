@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 主机组</div>
+                                <form action="" method="post">{% csrf_token %}
+                                    {{ form.as_p }}
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../host_group_add">增加</a> </span></div>
+                                    <div class="pull-right"><span class="badge badge-warning"><a href="../host_group_del">删除</a> </span></div>
+                                </form>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+                                                  <td>组名 </td>
+                                                  <td>主机ip</td>
+                                                  <td>idc</td>
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.group_name}}</td>
+                                                          <td>{{ foo.ip }}</td>
+                                                          <td>{{ foo.idc }}</td>
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>

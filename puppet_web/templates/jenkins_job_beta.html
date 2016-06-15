@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+{%  include "base_head.html" %}
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+          {% include "base_mu.html" %}
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                {% include "base_sidebar.html" %}
+                <!--/span-->
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">puppet 基础路径参数查看</div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../puppet">增加模块</a> </span>
+                                   </div>
+                                    <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_m_d">删除模块</a> </span>
+                                   </div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_m_upload">上传文件</a> </span>
+                                   </div>
+                                    <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_m_app_h">应用到主机</a> </span>
+                                   </div>
+                                   <div class="pull-right"><span class="badge badge-warning"><a href="../puppet_m_app_g">应用到主机组</a> </span>
+                                   </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                       <!-- {% csrf_token %} -->
+
+                                       <div class="base03">
+                                        {% load pagination_tags %}
+                                       {% autopaginate show_lines 10 %}
+                                           <table class="table table-bordered">
+                                              <tr>
+
+                                                  <td>发布项名称 </td>
+                                                  <td>发布时间</td>
+                                                  <td>发布用户</td>
+                                                  <td>结果</td>
+
+
+                                              </tr>
+
+                                               {% for foo in show_lines %}
+                                                   <tr>
+
+                                                          <td>{{ foo.job_name }}</td>
+                                                          <td>{{ foo.run_time }}</td>
+                                                          <td>{{ foo.job_user }}</td>
+                                                          <td>{{ foo.job_result }}</td>
+
+                                                   </tr>
+                                               {% endfor %}
+
+                                           </table>
+                                       {% paginate %}
+                                       </div>
+
+                                <div class="span10">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    {% include "base_below.html" %}
+
+    </body>
+
+</html>
